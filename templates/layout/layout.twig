@@ -1,0 +1,19 @@
+{% block head %}
+    {% include "layout/head.twig" %}
+{% endblock %}
+
+{% block header %}
+    {% include "layout/header.twig" %}
+{% endblock %}
+{% block nav %}{% endblock %}
+{% block page_title %}{% endblock %}
+
+{% block body %}
+    {% block article %}
+        {% block section %}{% endblock %}
+        {% block aside %}{% endblock %}
+    {% endblock %}
+    {% block script %}{% endblock %}
+{% endblock %}
+
+{% block footer %}{% endblock %}

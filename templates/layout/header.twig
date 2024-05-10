@@ -1,0 +1,54 @@
+<header>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="./img/logo.png" style="max-width: 150px;" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{path('app_home')}}">Accueil</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">Les Tricks les mieux notés</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">Tous les tricks</a>
+            </li>
+
+            {% if user %}
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{path("app_user_getProfile", {"id": user.id})}}"> {{user.userName}} </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{path("app_tricks_new")}}"> Partages ton trick ! </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href=" {{path("app_auth_logout")}} ">Déconnéxion</a>
+                </li>
+
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_auth_register') }}" method="get">S'authentifier</a>
+                </li>
+            
+            {% endif %}
+            
+            
+            
+        </ul>
+        <span class="navbar-text">
+            Un genou pété, une bière offerte !
+        </span>
+        </div>
+    </div>
+    </nav>
+
+</header>

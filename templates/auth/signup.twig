@@ -1,0 +1,59 @@
+{% extends "layout/layout.twig" %}
+
+{% block body %}
+
+    <div class="main mt-5">
+
+        <h2 class="text-center">{{ title }}</h2>
+
+        <div class="row d-flex">
+
+            {% if alert %}
+            
+                {% for message in app.flashes("danger") %}
+                    <div class="alert alert-danger">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+                        
+            {% endif %}
+
+
+            <form class="col-6 mx-auto" action="{{ path('app_auth_create') }}" method="post">
+
+                <div class="mb-3">
+                    <label for="userName" class="form-label">Nom d'utilisateur</label>
+                    <input type="text" class="form-control" id="userName" name="userName" aria-describedby="userName">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Adresse email</label>
+                    <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Mot de passe</label>
+                    <input type="password" class="form-control" id="password" name="password">
+                    <div id="emailHelp" class="form-text">Ne partagez pas votre mot de passe.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="passwordCheck" class="form-label">Confirmez votre mot de passe</label>
+                    <input type="password" class="form-control" id="passwordCheck" name="passwordCheck">
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">S'inscrire</button>
+                </div>
+                
+            </form>
+
+        </div>
+
+            <div class="d-block col-6 mx-auto">
+                <a href="{{ path('app_auth_register')}}">
+                <p>Vous avez déja un compte ?</p></a>
+            </div>
+
+                
+
+    </div>
+    
+{% endblock %}
